@@ -6,7 +6,7 @@ import UserTable from '../component/table/UserTable'
 const User = () => {
   return (
     <>
-    <ComponentTitle pageName="Users" button="add" link="/add-meal"/>
+    <ComponentTitle pageName="Users" button="add" link="/add-user"/>
      <UserTable />
    </>
   )

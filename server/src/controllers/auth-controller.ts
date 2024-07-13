@@ -33,12 +33,9 @@ const authController = {
       if (existUser) {
         return sendResponse(res, 400, "User already exists with this email");
       }
-
-      const role = 'user';
-
       const hashedPassword = await hashPassword(req.body.password);
 
-      await con.query("INSERT INTO users ( email, password, role ) VALUES (?, ?, ?)",[req.body.email, hashedPassword , role]);
+      await con.query("INSERT INTO users ( email, password ) VALUES (?, ?)",[req.body.email, hashedPassword ]);
 
       return sendResponse(res, 200, 'User registered successfully!');
     } catch (error) {

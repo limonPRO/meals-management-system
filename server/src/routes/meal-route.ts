@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { body } from "express-validator";
 import mealController from "../controllers/meal-controller";
+import scheduleController from "../controllers/schedule-controller";
 
 const router = Router();
 
@@ -31,4 +32,5 @@ router.post("/add", mealsValidationRules, mealController.createMeal);
 router.post("/schedule-meal", mealsScheduleValidationRules, mealController.scheduleMeal);
 router.get("/schedule-meal", mealController.viewMealSchedule);
 router.get("/", mealController.viewMealS);
+router.get("/weekly", scheduleController.getWeeklyMealsInMonth);
 export default router;
