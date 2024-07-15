@@ -1,7 +1,4 @@
 
-## Bookstore RESTful API
-
-This repository contains a TypeScript-based RESTful API for managing a bookstore. It allows users to perform CRUD operations on authors and books, leveraging Express for the web framework and PostgreSQL as the database.
 
 ## Features
 
