@@ -26,9 +26,6 @@ Before you begin, ensure you have met the following requirements:
 
 Clone the project
 
-```bash
-  https://github.com/limonPRO/BookStore.git
-```
 
 backend set up
 
