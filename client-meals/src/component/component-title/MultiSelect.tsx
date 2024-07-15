@@ -14,10 +14,11 @@ interface DropdownProps {
   id: string;
   options:any
   setOptions:any
+  intialData:any
 }
 
-const MultiSelect: React.FC<DropdownProps> = ({ id , options ,setOptions }) => {
-  const [intialData, setInitailData] = useState<any[]>([]);
+const MultiSelect: React.FC<DropdownProps> = ({ id , options ,setOptions ,intialData }) => {
+
   const [selected, setSelected] = useState<number[]>([]);
   const [show, setShow] = useState(false);
   const dropdownRef = useRef<any>(null);
@@ -99,16 +100,6 @@ const MultiSelect: React.FC<DropdownProps> = ({ id , options ,setOptions }) => {
     });
 
 
-    const { data , isLoading } = useQuery({
-        queryKey: ["items"],
-        queryFn: () => get("/item"),
-      });
-
-useEffect(()=>{
-    if(!isLoading && data){
-        setInitailData(data?.data)
-    }
-}, [data ,isLoading ])
 
 
 
