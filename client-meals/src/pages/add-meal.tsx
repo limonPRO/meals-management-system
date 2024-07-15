@@ -79,7 +79,7 @@ if(!isLoading && data){
             </div>
             <div className="flex flex-col gap-5.5 p-6.5">
             <label className="mb-3 block !text-black dark:text-white">
-               meal
+               items
               </label>
            <MultiSelect id="multi" options={options} setOptions={setOptions} intialData={intialData}/>
            </div>
