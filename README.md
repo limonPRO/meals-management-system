@@ -19,9 +19,7 @@ Before you begin, ensure you have met the following requirements:
 - Node.js and npm installed
 - MySQL database instance
 - A mysql database created for this project
-- Knowledge of TypeScript and Express framework
 
-- 
 ## Run Locally
 
 Clone the project
