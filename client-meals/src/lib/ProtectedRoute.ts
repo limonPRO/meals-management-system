@@ -1,21 +1,29 @@
-import { RootState } from '../app/store';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Redirect, Route, RouteProps } from 'react-router-dom';
+import { RootState } from './store';
+interface ProtectedRouteProps {
+  allowedRoles: string[];
+  element: React.ReactElement;
+}
 
-// Define types for roles
-type UserRole = 'Admin' | 'User';
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ allowedRoles, element }) => {
+  const user = useSelector((state: RootState) => state.auth.user);
+  const navigate = useNavigate();
 
-// HOC to guard routes based on role
-export const ProtectedRoute = ({
-  allowedRoles,
-  ...rest
-}: { allowedRoles: UserRole[] } & RouteProps) => {
-  const userRole = useSelector((state: RootState) => state.auth.user?.role);
-
-  if (!userRole || !allowedRoles.includes(userRole)) {
-    // Redirect to login or unauthorized page
-    return <Redirect to="/unauthorized" />;
+  if (!user) {
+    navigate("/login");
+    return null;
   }
 
-  return <Route {...rest} />;
+  const hasAccess = allowedRoles.includes(user.role);
+
+  if (!hasAccess) {
+    navigate("/login");
+    return null;
+  }
+
+  return element;
 };
+
+export default ProtectedRoute;

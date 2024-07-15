@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import commonSlice from '../features/commonSlice'
-import authReducer from '../features/authSlice';
+import authSlice from '../features/authSlice'
 // ...
 
 export const store = configureStore({
@@ -9,7 +9,7 @@ export const store = configureStore({
     // comments: commentsReducer,
  
     common :commonSlice,
-    auth: authReducer,
+    auth: authSlice,
   },
 })
 

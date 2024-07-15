@@ -11,7 +11,7 @@ interface User {
   updated_at: string;
 }
 
-interface AuthState {
+export interface AuthState {
   user: User | null;
   token: string | null;
   role: string | null;
@@ -20,7 +20,7 @@ interface AuthState {
 const initialState: AuthState = {
   user: null,
   token: null,
-  role: null,
+  role: "Admin",
 };
 
 const authSlice = createSlice({

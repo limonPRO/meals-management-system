@@ -38,13 +38,12 @@ const dispatch = useDispatch()
     },
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event:any) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const selectedBirthday = formData.get('birthday');
+    const selectedBirthday = formData.get('day');
     
-    // Example meal_id and scheduled_date; replace with actual values
-    const meal_id = 1; // Replace with actual meal_id
+ 
     addMutation.mutate({
       meal_id:id,
       scheduled_date: selectedBirthday,
@@ -119,8 +118,8 @@ const dispatch = useDispatch()
                   <input
                     className="w-full"
                     type="date"
-                    id="birthday"
-                    name="birthday"
+                    id="day"
+                    name="day"
                     onChange={(e) => setSelectedDate(e.target.value)}
                   />
                   <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
